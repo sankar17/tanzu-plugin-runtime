@@ -135,6 +135,8 @@ func convertTargetToServerType(t configtypes.Target) configtypes.ServerType {
 		return configtypes.ManagementClusterServerType
 	case configtypes.TargetTMC:
 		return configtypes.GlobalServerType
+	case configtypes.TargetTSM:
+		return configtypes.GlobalServerType
 	}
 	// no other context type is supported in v1 yet
 	return configtypes.ServerType(t)

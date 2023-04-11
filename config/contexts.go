@@ -240,6 +240,8 @@ func EndpointFromContext(s *configtypes.Context) (endpoint string, err error) {
 		return s.ClusterOpts.Endpoint, nil
 	case configtypes.TargetTMC:
 		return s.GlobalOpts.Endpoint, nil
+	case configtypes.TargetTSM:
+		return s.GlobalOpts.Endpoint, nil
 	default:
 		return endpoint, fmt.Errorf("unknown server type %q", s.Target)
 	}

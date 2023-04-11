@@ -24,6 +24,11 @@ const (
 	TargetTMC Target = "mission-control"
 	targetTMC Target = "tmc"
 
+	// TargetTSM is a Tanzu Servicemesh target of the CLI
+	// This target applies if the plugin is interacting with a Tanzu Servicemesh endpoint
+	TargetTSM Target = "servicemesh"
+	targetTSM Target = "tsm"
+
 	// TargetGlobal is used for plugins that are not associated with any target
 	TargetGlobal Target = "global"
 
@@ -33,7 +38,7 @@ const (
 
 var (
 	// SupportedTargets is a list of all supported Target
-	SupportedTargets = []Target{TargetK8s, TargetTMC}
+	SupportedTargets = []Target{TargetK8s, TargetTMC, TargetTSM}
 )
 
 const (
@@ -164,7 +169,7 @@ func (c *ClientConfig) SetCurrentContext(target Target, ctxName string) error {
 	if err != nil {
 		return err
 	}
-	if ctx.IsManagementCluster() || ctx.Target == TargetTMC {
+	if ctx.IsManagementCluster() || ctx.Target == TargetTMC || ctx.Target == TargetTSM {
 		c.CurrentServer = ctxName
 	}
 	return nil
