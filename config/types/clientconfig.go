@@ -26,8 +26,8 @@ const (
 
 	// TargetTSM is a Tanzu Servicemesh target of the CLI
 	// This target applies if the plugin is interacting with a Tanzu Servicemesh endpoint
-	TargetTSM Target = "servicemesh"
-	targetTSM Target = "tsm"
+	TargetTSM Target = "cosmos"
+	targetTSM Target = "cm"
 
 	// TargetGlobal is used for plugins that are not associated with any target
 	TargetGlobal Target = "global"
